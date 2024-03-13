@@ -1,0 +1,25 @@
+Program.Sub.Preflight.Start
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+'BN, Aug 22, 2018
+'This project will auto check the Labor, Material, Outside, Misc, Rework and Estimate to a default set
+'Shop Floor Control > Reports > Bar Code Work Order
+
+'Populate hook
+f.Intrinsic.Control.If(v.Caller.Hook,=,10010)
+	'Labor
+	variable.Passed.000007.Set("Y")	
+	'Material
+	Variable.Passed.000008.Set("N")	
+	'Outside
+	Variable.Passed.000009.Set("Y")
+	'Misc
+	Variable.Passed.000010.Set("Y")
+	'Rework
+	Variable.Passed.000011.Set("Y")
+	'Estimate
+	Variable.Passed.000012.Set("N")
+f.Intrinsic.Control.EndIf
+
+Program.Sub.Main.End
